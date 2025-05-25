@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
                 from: process.env.mail,
                 to: to,
                 subject: title,
-                text: text
+                text: text + '\n<h6>Письмо, присланное с этой почты является рассылочным. Владелец почты не несёт ответственность за содержание письма.</h6>'
             };
 
             ServiceSenter.sendMail(options, (error, info) => {
@@ -69,7 +69,7 @@ const server = http.createServer((req, res) => {
                 from: process.env.mail,
                 to: to.join(','),
                 subject: title,
-                text: text
+                text: text + '\n<h6>Письмо, присланное с этой почты является рассылочным. Владелец почты не несёт ответственность за содержание письма.</h6>'
             };
 
             ServiceSenter.sendMail(options, (error, info) => {
